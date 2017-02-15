@@ -12,5 +12,9 @@
     "argparse": "^1.0.9",
     "binary-split": "^1.0.3",
     "pump": "^1.0.2"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.3",
+    "standard-format": "^2.2.4"
   }
 }
