@@ -1,0 +1,16 @@
+{
+  "name": "bountify-split-json",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean Lang <slang800@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "argparse": "^1.0.9",
+    "binary-split": "^1.0.3",
+    "pump": "^1.0.2"
+  }
+}
