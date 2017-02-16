@@ -1,9 +1,10 @@
 fs = require 'fs'
 path = require 'path'
 
-pump = require 'pump'
 binarySplit = require 'binary-split'
 map = require 'through2'
+mkdirp = require 'mkdirp'
+pump = require 'pump'
 {ArgumentParser} = require 'argparse'
 
 packageInfo = require '../package'
@@ -42,10 +43,14 @@ splitStream = (key, directory, omitKey) ->
       cb()
     destination = path.join(directory, obj[key] + '.json')
     if omitKey then delete obj[key]
-    fs.appendFile(destination, JSON.stringify(obj) + '\n', cb)
+    mkdirp(path.dirname(destination), (err) ->
+      if err
+        cb(err)
+      else
+        fs.appendFile(destination, JSON.stringify(obj) + '\n', cb)
+    )
   )
 
-fs.mkdirSync(argv.directory)
 pump(
   process.stdin
   binarySplit()
